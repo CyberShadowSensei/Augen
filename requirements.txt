@@ -1,0 +1,16 @@
+streamlit
+ollama
+pyaudio
+webrtcvad
+numpy
+pandas
+chromadb
+pydantic
+openai-whisper
+pyvis
+kokoro-onnx
+sounddevice
+scipy
+transformers
+einops
+timm
