@@ -49,6 +49,7 @@ class AudioListener:
         requested_device = device if device is not None else getattr(config, "WHISPER_DEVICE", "cuda")
         self.fallback_to_cpu = getattr(config, "WHISPER_FALLBACK_TO_CPU", True)
         self.temperature = getattr(config, "WHISPER_TEMPERATURE", 0.0)
+        self.initial_prompt = getattr(config, "WHISPER_INITIAL_PROMPT", None)
         self.silence_threshold_ms = getattr(config, "SILENCE_THRESHOLD_MS", self.SILENCE_THRESHOLD_MS)
         self.vad_aggressiveness = getattr(config, "VAD_AGGRESSIVENESS", self.VAD_AGGRESSIVENESS)
 
@@ -272,14 +273,20 @@ class AudioListener:
             audio_np = np.frombuffer(audio_bytes, dtype=np.int16).astype(np.float32) / 32768.0
             use_fp16 = self.device.startswith("cuda")
 
+            transcribe_kwargs = {
+                "language": "en",
+                "fp16": use_fp16,
+                "temperature": self.temperature,
+                "condition_on_previous_text": False,
+                "without_timestamps": True
+            }
+            if self.initial_prompt:
+                transcribe_kwargs["initial_prompt"] = self.initial_prompt
+
             with self._transcription_lock:
                 result = self.whisper_model.transcribe(
                     audio_np,
-                    language="en",
-                    fp16=use_fp16,
-                    temperature=self.temperature,
-                    condition_on_previous_text=False,
-                    without_timestamps=True
+                    **transcribe_kwargs
                 )
             transcribed_text = result.get("text", "").strip()
             

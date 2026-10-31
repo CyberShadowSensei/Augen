@@ -58,36 +58,34 @@ class RAGEngine:
             else:
                 context_str = "No relevant memories found."
 
-            # 4. Construct the Prompt
+            # 4. Construct the Prompt (Short, Concise & Direct)
             system_prompt = (
-                "You are an AI assistant. I will provide you with a User Query, a Conversation History, and Context From Memory.\n"
-                "Your task is to answer the query naturally, using the history for context (like pronouns 'it', 'he') and the memory for facts.\n\n"
-                
-                "**CRITICAL INSTRUCTION:** Your output must ONLY be the final answer. Do NOT repeat the Context.\n\n"
-                
-                "1. Check 'Context From Memory' first. If it answers the query, start with `[From Memory]:`.\n"
-                "2. If the answer is not in memory but is in 'Conversation History' or is general knowledge, start with `[General Knowledge]:`.\n"
-                "3. NEVER say 'I don't have personal info' if the info is right there in the Memory block.\n\n"
-
+                "You are an ultra-concise, direct personal AI memory assistant.\n"
+                "Your task is to answer the query using Context From Memory or General Knowledge.\n\n"
+                "**STRICT INSTRUCTIONS:**\n"
+                "1. Be extremely SHORT, CONCISE, and DIRECT TO THE POINT (1 to 2 sentences maximum).\n"
+                "2. NO conversational filler, pleasantries, preamble, or repeating the question.\n"
+                "3. If 'Context From Memory' contains the answer, start with `[From Memory]:` followed immediately by the concise answer.\n"
+                "4. If the answer is not in memory, start with `[General Knowledge]:` followed immediately by the concise answer.\n"
+                "5. If information is completely missing, reply: `[From Memory]: Information not found in memory.`\n\n"
                 "--- RECENT CONVERSATION ---\n"
                 f"{history_str}\n"
                 "---------------------------\n\n"
-
                 "--- CONTEXT FROM MEMORY ---\n"
                 f"{context_str}\n"
                 "---------------------------\n\n"
-
                 "USER QUERY:\n"
                 f"{query}\n"
                 "---"
             )
             
-            # 5. Generate Response via Ollama
+            # 5. Generate Response via Ollama (capped tokens for brevity & low latency)
             response = ollama.chat(
                 model=self.llm_model,
-                messages=[{'role': 'user', 'content': system_prompt}]
+                messages=[{'role': 'user', 'content': system_prompt}],
+                options={'temperature': 0.1, 'num_predict': 80}
             )
-            return response['message']['content']
+            return response['message']['content'].strip()
             
         except Exception as e:
             logging.error(f"Error generating response: {e}", exc_info=True)

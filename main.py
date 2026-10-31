@@ -84,14 +84,17 @@ class AssistantController:
         logging.info(f"Router: Analyzing '{text}'...")
         
         intent_system_prompt = """You are an expert, JSON-only router. Classify the input.
-- **save**: User wants to SAVE/LOG information (e.g., 'Remember...', 'Note:', 'I met with...', or simple facts like 'Flight is at 5pm').
-  Input: "Remember that I need to pick up dry cleaning." -> Output: {"intent": "save", "content": "I need to pick up dry cleaning.", "confidence": 0.9}
-  Input: "From Delhi." -> Output: {"intent": "save", "content": "From Delhi.", "confidence": 0.9}
-  Input: "19th December." -> Output: {"intent": "save", "content": "19th December.", "confidence": 0.9}
+- **save**: User explicitly wants to SAVE/LOG information (e.g., 'Remember that...', 'Note:', 'Save this:', 'Don't forget...', or simple factual notes like 'Flight is at 5pm').
+  Input: "Remember that I need to pick up dry cleaning." -> Output: {"intent": "save", "content": "I need to pick up dry cleaning.", "confidence": 0.95}
+  Input: "Note: Dr. Mehta appointment is on Tuesday." -> Output: {"intent": "save", "content": "Dr. Mehta appointment is on Tuesday.", "confidence": 0.95}
 
-- **query**: User asks a QUESTION (e.g., 'When...?', 'What...?', 'Who...?').
-  Input: "Who is the CEO of Apple?"
-  Output: {"intent": "query", "content": "Who is the CEO of Apple?", "confidence": 0.9}
+- **query**: User asks a QUESTION or requests info (e.g., 'When...?', 'What...?', 'Who...?', 'Where...?', 'Tell me about...', 'Do you know...', 'Can you check...'). Tolerant of speech-to-text without punctuation.
+  Input: "Where did I leave my keys"
+  Output: {"intent": "query", "content": "Where did I leave my keys", "confidence": 0.95}
+  Input: "What is the Wi-Fi password"
+  Output: {"intent": "query", "content": "What is the Wi-Fi password", "confidence": 0.95}
+  Input: "Tell me about Project Apollo"
+  Output: {"intent": "query", "content": "Tell me about Project Apollo", "confidence": 0.95}
   *IMPORTANT: 'content' MUST be the actual question text.*
 
 - **chat**: User EXPLICITLY commands to switch mode.
@@ -250,10 +253,14 @@ Output JSON: {"intent": "save", "content": "..."}"""
                     time.sleep(1) # VRAM cooldown
 
                     if "Error" not in analysis:
-                        # Synthesis
-                        prompt = f"Summarize this visual analysis for the user as a helpful observation: {analysis}"
+                        # Synthesis: short and to the point
+                        prompt = f"Summarize this visual analysis in ONE short sentence (under 15 words) for speech: {analysis}"
                         with self.llm_lock:
-                            response = ollama.chat(model="granite3-dense:2b", messages=[{'role':'user', 'content': prompt}])
+                            response = ollama.chat(
+                                model="granite3-dense:2b",
+                                messages=[{'role':'user', 'content': prompt}],
+                                options={'temperature': 0.1, 'num_predict': 50}
+                            )
                         
                         summary = response['message']['content']
                         

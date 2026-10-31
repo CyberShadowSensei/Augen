@@ -20,9 +20,10 @@ TTS_VOICE = "af_sarah"
 TTS_SPEED = 1.0
 
 # --- Audio & Whisper STT Settings ---
-WHISPER_MODEL = "base.en"       # "base.en" for lowest latency, "small.en" for highest accuracy
+WHISPER_MODEL = "small"          # Multilingual "small" model (robust to regional/Indian accents; runs in ~230ms on GPU)
 WHISPER_DEVICE = "cuda"         # "cuda" or "cpu"
 WHISPER_FALLBACK_TO_CPU = True  # Automatically fallback to CPU if CUDA fails
 WHISPER_TEMPERATURE = 0.0       # Greedy single-pass decoding (eliminates hallucination loops)
-SILENCE_THRESHOLD_MS = 500      # Milliseconds of silence to trigger end-of-utterance
-VAD_AGGRESSIVENESS = 3          # 0 (least aggressive) to 3 (most aggressive)
+WHISPER_INITIAL_PROMPT = "Personal AI assistant. Clear English commands, questions, notes, reminders, Apollo, Wi-Fi password, Dr. Mehta, David Chen, keys, meetings, appointments."
+SILENCE_THRESHOLD_MS = 750      # Increased to 750ms so natural pauses between words do not clip sentences
+VAD_AGGRESSIVENESS = 2          # 2 (balanced): prevents clipping of soft word beginnings and trailing consonants
