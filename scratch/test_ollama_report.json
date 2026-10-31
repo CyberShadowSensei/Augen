@@ -1,0 +1,202 @@
+{
+  "results": [
+    {
+      "section": "OCR",
+      "name": "Synthetic text detection",
+      "status": "PASS",
+      "detail": "Output: 'Hello PMC 2026\\nInvoice Total: S500'"
+    },
+    {
+      "section": "OCR",
+      "name": "Blank image returns no-text",
+      "status": "PASS",
+      "detail": "Got: 'No text detected.'"
+    },
+    {
+      "section": "OCR",
+      "name": "reader=None returns error string",
+      "status": "PASS",
+      "detail": "OCR Unavailable."
+    },
+    {
+      "section": "Moondream",
+      "name": "Image description",
+      "status": "PASS",
+      "detail": "(9.0s) '\\nThe image shows a whiteboard with the text \"Matching Meeting Room A\" written in bold red letters at'"
+    },
+    {
+      "section": "Moondream",
+      "name": "keep_alive=0 VRAM-unload call succeeds",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Memory",
+      "name": "MemoryStore init + Ollama connection",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Memory",
+      "name": "add_memory() returns UUID",
+      "status": "PASS",
+      "detail": "985043aa"
+    },
+    {
+      "section": "Memory",
+      "name": "count() = 2",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Memory",
+      "name": "get_recent_memories(5) returns list",
+      "status": "PASS",
+      "detail": "2 entries"
+    },
+    {
+      "section": "Memory",
+      "name": "search_memory() relevant query returns results",
+      "status": "PASS",
+      "detail": "1 results"
+    },
+    {
+      "section": "Memory",
+      "name": "Result contains 'Apollo' or 'budget'",
+      "status": "PASS",
+      "detail": "[Distance: 100.8555] [Time: 2026-10-31 16:06:23] [PRIORITY: Low] [TOPIC: Project] [Entities: ]\nConte"
+    },
+    {
+      "section": "Memory",
+      "name": "Irrelevant query filtered by threshold",
+      "status": "PASS",
+      "detail": "0 results (expected 0)"
+    },
+    {
+      "section": "Memory",
+      "name": "enrich_text() returns dict with entities/topic/priority",
+      "status": "PASS",
+      "detail": "{'entities': ['Alice', 'Bob', 'Google', 'NYC'], 'topic': 'Person', 'priority': 'High'}"
+    },
+    {
+      "section": "Memory",
+      "name": "get_all_memories() returns list",
+      "status": "PASS",
+      "detail": "2 total"
+    },
+    {
+      "section": "Memory",
+      "name": "delete_memory() removes entry",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Memory",
+      "name": "MemoryEntry model valid UUID + timestamp",
+      "status": "PASS",
+      "detail": "id=86f8bc61"
+    },
+    {
+      "section": "Memory",
+      "name": "get_recent_entities() returns Counter",
+      "status": "PASS",
+      "detail": "Top entities: []"
+    },
+    {
+      "section": "RAG",
+      "name": "RAGEngine init",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "RAG",
+      "name": "Query with context returns answer",
+      "status": "PASS",
+      "detail": "(0.7s) '[From Memory]: The Orion project deadline is December 15th.'"
+    },
+    {
+      "section": "RAG",
+      "name": "[From Memory] prefix or December mentioned",
+      "status": "PASS",
+      "detail": "[From Memory]: The Orion project deadline is December 15th."
+    },
+    {
+      "section": "RAG",
+      "name": "General knowledge query returns answer",
+      "status": "PASS",
+      "detail": "[General Knowledge]: The capital of France is Paris."
+    },
+    {
+      "section": "RAG",
+      "name": "Chat history context (cat name recall)",
+      "status": "PASS",
+      "detail": "[From Memory]: The context from memory does not provide the answer to the query. However, based on t"
+    },
+    {
+      "section": "RAG",
+      "name": "Answers correctly prefixed",
+      "status": "PASS",
+      "detail": "Prefix found in at least one answer"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Remember that the meeting is at 3pm.'",
+      "status": "PASS",
+      "detail": "-> 'save' (expected 'save')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'What time is the meeting?'",
+      "status": "PASS",
+      "detail": "-> 'query' (expected 'query')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Note: Flight departs at 7am.'",
+      "status": "FAIL",
+      "detail": "-> 'ignore' (expected 'save')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Who is the CEO of Apple?'",
+      "status": "PASS",
+      "detail": "-> 'query' (expected 'query')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Scan this document.'",
+      "status": "PASS",
+      "detail": "-> 'read_screen' (expected 'read_screen')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Read this screen.'",
+      "status": "PASS",
+      "detail": "-> 'read_screen' (expected 'read_screen')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Let's chat.'",
+      "status": "PASS",
+      "detail": "-> 'chat' (expected 'chat')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Uhh... hmm...'",
+      "status": "PASS",
+      "detail": "-> 'ignore' (expected 'ignore')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Hello!'",
+      "status": "FAIL",
+      "detail": "-> 'chat' (expected 'ignore')"
+    },
+    {
+      "section": "Intent Router",
+      "name": "Overall accuracy: 7/9 = 78%",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}

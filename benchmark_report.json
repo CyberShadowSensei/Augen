@@ -1,0 +1,75 @@
+{
+  "environment": {
+    "platform": "Windows 10",
+    "python_version": "3.10.11",
+    "pytorch_version": "2.7.1+cu118",
+    "cuda_available": true,
+    "cuda_version": "11.8",
+    "gpu_name": "NVIDIA GeForce RTX 5050 Laptop GPU",
+    "compute_capability": [
+      12,
+      0
+    ],
+    "supported_architectures": [
+      "sm_37",
+      "sm_50",
+      "sm_60",
+      "sm_61",
+      "sm_70",
+      "sm_75",
+      "sm_80",
+      "sm_86",
+      "sm_90",
+      "compute_37"
+    ],
+    "active_device": "cpu",
+    "initial_ram_rss_mb": 366.28
+  },
+  "config": {
+    "model_name": "small",
+    "requested_model": "base.en",
+    "device": "cpu",
+    "fp16": false,
+    "temperature": 0.0,
+    "audio_source": "Synthetic Harmonic Speech-Like PCM (3.00s)",
+    "audio_duration_s": 3.0,
+    "warm_runs": 5
+  },
+  "cold_start": {
+    "model_load_latency_s": 2.9564,
+    "cold_inference_latency_s": 1.6998,
+    "total_cold_start_s": 4.6562,
+    "cold_inference_rtf": 0.5666
+  },
+  "warm_performance": {
+    "mean_latency_s": 1.1867,
+    "mean_latency_ms": 1186.66,
+    "std_latency_s": 0.0315,
+    "std_latency_ms": 31.48,
+    "min_latency_s": 1.1344,
+    "min_latency_ms": 1134.44,
+    "max_latency_s": 1.2199,
+    "max_latency_ms": 1219.89,
+    "median_latency_s": 1.1829,
+    "raw_latencies_s": [
+      1.2187,
+      1.2199,
+      1.1829,
+      1.1344,
+      1.1774
+    ],
+    "real_time_factor_rtf": 0.39555,
+    "speedup_vs_realtime": 2.53
+  },
+  "memory": {
+    "initial_ram_rss_mb": 366.28,
+    "final_ram_rss_mb": 1922.77,
+    "ram_rss_delta_mb": 1556.49,
+    "cuda_allocated_mb": null,
+    "cuda_reserved_mb": null,
+    "cuda_peak_mb": null
+  },
+  "transcription": {
+    "output_text": "you"
+  }
+}

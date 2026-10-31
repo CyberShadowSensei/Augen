@@ -1,0 +1,497 @@
+{
+  "summary": {
+    "total": 81,
+    "passed": 60,
+    "failed": 16,
+    "skipped": 0,
+    "info": 5
+  },
+  "results": [
+    {
+      "section": "Config",
+      "name": "CAMERA_INDEX=0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAMERA_BACKEND='cv2.CAP_DSHOW'",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAMERA_FALLBACK_INDICES=[1]",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAMERA_FALLBACK_BACKENDS=['cv2.CAP_ANY', 'cv2.CAP_MSMF']",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAMERA_AUTO_DETECT=True",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAMERA_WARMUP_DELAY=0.75",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "TTS_VOICE='af_sarah'",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "WHISPER_MODEL='base.en'",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "WHISPER_DEVICE='cuda'",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "WHISPER_FALLBACK_TO_CPU=True",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "WHISPER_TEMPERATURE=0.0",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "SILENCE_THRESHOLD_MS=500",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "VAD_AGGRESSIVENESS=3",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAP_BACKEND backward-compat alias",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Config",
+      "name": "CAMERA_INDEX default is 0",
+      "status": "PASS",
+      "detail": "Got 0"
+    },
+    {
+      "section": "Config",
+      "name": "WHISPER_DEVICE is cuda",
+      "status": "PASS",
+      "detail": "Got cuda"
+    },
+    {
+      "section": "Config",
+      "name": "WHISPER_MODEL is base.en",
+      "status": "PASS",
+      "detail": "Got base.en"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('cv2.CAP_DSHOW')",
+      "status": "PASS",
+      "detail": "got=700, expected=700"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('CAP_DSHOW')",
+      "status": "PASS",
+      "detail": "got=700, expected=700"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('DSHOW')",
+      "status": "PASS",
+      "detail": "got=700, expected=700"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('cv2.CAP_ANY')",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('CAP_ANY')",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('ANY')",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('AUTO')",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('DEFAULT')",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('cv2.CAP_MSMF')",
+      "status": "PASS",
+      "detail": "got=1400, expected=1400"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('MSMF')",
+      "status": "PASS",
+      "detail": "got=1400, expected=1400"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve(700)",
+      "status": "PASS",
+      "detail": "got=700, expected=700"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve(0)",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve('UNKNOWN_JUNK')",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Backend Resolver",
+      "name": "resolve(None)",
+      "status": "PASS",
+      "detail": "got=0, expected=0"
+    },
+    {
+      "section": "Camera",
+      "name": "Direct cv2.VideoCapture(0, CAP_DSHOW)",
+      "status": "FAIL",
+      "detail": "Camera not found at index 0"
+    },
+    {
+      "section": "Camera",
+      "name": "VisualCortex._open_camera() -> idx=1",
+      "status": "PASS",
+      "detail": "shape=(480, 640, 3)"
+    },
+    {
+      "section": "Camera",
+      "name": "VisualCortex._capture_frame()",
+      "status": "PASS",
+      "detail": "shape=(480, 640, 3)"
+    },
+    {
+      "section": "Camera",
+      "name": "5x consecutive _capture_frame() (no leak)",
+      "status": "PASS",
+      "detail": "All 5 frames captured cleanly"
+    },
+    {
+      "section": "Camera",
+      "name": "Invalid index 99 returns error string (no crash)",
+      "status": "PASS",
+      "detail": "Error: Unable to access camera (Index 99 and all fallbacks failed)."
+    },
+    {
+      "section": "OCR",
+      "name": "OCR tests",
+      "status": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pathlib.py\", line 1175, in mkdir\n    self._accessor.mkdir(self, mode)\nPermissionError: [WinError 5] Access is denied: 'C:\\\\Users\\\\devan\\\\.EasyOCR\\\\model'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"D:\\contextAI-main\\scratch\\test_all_features.py\", line 189, in <module>\n    vc2.reader = easyocr.Reader(['en'], gpu=False, verbose=False)\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\easyocr\\easyocr.py\", line 60, in __init__\n    Path(self.model_storage_directory).mkdir(parents=True, exist_ok=True)\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\pathlib.py\", line 1184, in mkdir\n    if not exist_ok or not self.is_dir():\nPermissionError: [WinError 5] Access is denied: 'C:\\\\Users\\\\devan\\\\.EasyOCR\\\\model'\n"
+    },
+    {
+      "section": "Moondream",
+      "name": "Image description",
+      "status": "FAIL",
+      "detail": "Error running Moondream: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. ht"
+    },
+    {
+      "section": "Moondream",
+      "name": "keep_alive=0 VRAM-unload call succeeds",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "section": "Whisper",
+      "name": "torch.cuda.is_available()=True",
+      "status": "INFO",
+      "detail": ""
+    },
+    {
+      "section": "Whisper",
+      "name": "GPU capability: sm_120",
+      "status": "INFO",
+      "detail": "Arch list: ['sm_37', 'sm_50', 'sm_60', 'sm_61', 'sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90', 'compute_37']"
+    },
+    {
+      "section": "Whisper",
+      "name": "sm_120 native support in PyTorch build",
+      "status": "INFO",
+      "detail": "Unsupported \u2014 fallback to CPU expected"
+    },
+    {
+      "section": "Whisper",
+      "name": "AudioListener init on device='cpu'",
+      "status": "PASS",
+      "detail": "Model='small', loaded in 5.9s"
+    },
+    {
+      "section": "Whisper",
+      "name": "GPU warmup inference ran during init",
+      "status": "PASS",
+      "detail": "warmup completed (model loaded without hang)"
+    },
+    {
+      "section": "Whisper",
+      "name": "Silence transcription returns empty/minimal text",
+      "status": "PASS",
+      "detail": "(1.25s) Got: 'you'"
+    },
+    {
+      "section": "Whisper",
+      "name": "Tone audio transcription (pure 440Hz)",
+      "status": "PASS",
+      "detail": "(1.25s) Got: ''"
+    },
+    {
+      "section": "Whisper",
+      "name": "Real-Time Factor (RTF)",
+      "status": "PASS",
+      "detail": "RTF=0.836 (faster than real-time)"
+    },
+    {
+      "section": "Whisper",
+      "name": "fp16=False on device='cpu'",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Whisper",
+      "name": "Model name ends in .en (suffix preserved)",
+      "status": "INFO",
+      "detail": "Model: 'small'"
+    },
+    {
+      "section": "Whisper",
+      "name": "device='cuda:0' indexed string resolves",
+      "status": "PASS",
+      "detail": "Active device: 'cpu'"
+    },
+    {
+      "section": "Whisper",
+      "name": "Short buffer (<400ms) is discarded (no callback)",
+      "status": "PASS",
+      "detail": "Callback fired 0 times"
+    },
+    {
+      "section": "Whisper",
+      "name": "Invalid buffer type rejected gracefully",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Memory",
+      "name": "MemoryStore tests",
+      "status": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"D:\\contextAI-main\\memory_store.py\", line 68, in _verify_ollama_connection\n    models_response = self.ollama_client.list()\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ollama\\_client.py\", line 653, in list\n    return self._request(\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ollama\\_client.py\", line 203, in _request\n    return cls(**self._request_raw(*args, **kwargs).json())\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ollama\\_client.py\", line 149, in _request_raw\n    raise ConnectionError(CONNECTION_ERROR_MESSAGE) from None\nConnectionError: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\contextAI-main\\scratch\\test_all_features.py\", line 364, in <module>\n    ms = MemoryStore()\n  File \"D:\\contextAI-main\\memory_store.py\", line 62, in __init__\n    self._verify_ollama_connection()\n  File \"D:\\contextAI-main\\memory_store.py\", line 78, in _verify_ollama_connection\n    raise OllamaConnectionError(f\"Could not connect to Ollama. Error: {e}\") from e\nmemory_store.OllamaConnectionError: Could not connect to Ollama. Error: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download\n"
+    },
+    {
+      "section": "RAG",
+      "name": "RAG engine tests",
+      "status": "FAIL",
+      "detail": "Traceback (most recent call last):\n  File \"D:\\contextAI-main\\memory_store.py\", line 68, in _verify_ollama_connection\n    models_response = self.ollama_client.list()\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ollama\\_client.py\", line 653, in list\n    return self._request(\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ollama\\_client.py\", line 203, in _request\n    return cls(**self._request_raw(*args, **kwargs).json())\n  File \"C:\\Users\\devan\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\ollama\\_client.py\", line 149, in _request_raw\n    raise ConnectionError(CONNECTION_ERROR_MESSAGE) from None\nConnectionError: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"D:\\contextAI-main\\scratch\\test_all_features.py\", line 436, in <module>\n    ms2 = MemoryStore()\n  File \"D:\\contextAI-main\\memory_store.py\", line 62, in __init__\n    self._verify_ollama_connection()\n  File \"D:\\contextAI-main\\memory_store.py\", line 78, in _verify_ollama_connection\n    raise OllamaConnectionError(f\"Could not connect to Ollama. Error: {e}\") from e\nmemory_store.OllamaConnectionError: Could not connect to Ollama. Error: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download\n"
+    },
+    {
+      "section": "TTS",
+      "name": "TTSEngine init (Kokoro ONNX)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "TTS",
+      "name": "speak() enqueues and fires",
+      "status": "PASS",
+      "detail": "Thread started"
+    },
+    {
+      "section": "TTS",
+      "name": "is_speaking() returns bool=True",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "TTS",
+      "name": "speak() completes cleanly",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "TTS",
+      "name": "stop_speaking() interrupts playback",
+      "status": "INFO",
+      "detail": ""
+    },
+    {
+      "section": "TTS",
+      "name": "Multi-sentence queued (split on punctuation)",
+      "status": "PASS",
+      "detail": "Sentence splitting in _split_sentences()"
+    },
+    {
+      "section": "TTS",
+      "name": "Multi-sentence completes cleanly",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "TTS",
+      "name": "Markdown artifacts cleaned (no crash)",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Remember that the meeting is at 3pm.'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'What time is the meeting?'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Note: Flight departs at 7am.'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Who is the CEO of Apple?'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Scan this document.'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Read this screen.'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Let's chat.'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Uhh... hmm...'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "'Hello!'",
+      "status": "FAIL",
+      "detail": "Failed to connect to Ollama. Please check that Ollama is downloaded, running and"
+    },
+    {
+      "section": "Intent Router",
+      "name": "Overall accuracy: 0/9 = 0%",
+      "status": "FAIL",
+      "detail": ""
+    },
+    {
+      "section": "Knowledge Graph",
+      "name": "Pyvis graph generation",
+      "status": "PASS",
+      "detail": "Generated HTML size: 11180 bytes"
+    },
+    {
+      "section": "Knowledge Graph",
+      "name": "Memory and entity nodes added",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "Knowledge Graph",
+      "name": "Edge between memory and entity",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "VAD",
+      "name": "Silence frame classified correctly",
+      "status": "PASS",
+      "detail": "is_speech=False (expected False)"
+    },
+    {
+      "section": "VAD",
+      "name": "Aggressiveness=0 initializes OK",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "VAD",
+      "name": "Aggressiveness=1 initializes OK",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "VAD",
+      "name": "Aggressiveness=2 initializes OK",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "VAD",
+      "name": "Aggressiveness=3 initializes OK",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "section": "VAD",
+      "name": "VAD from config.VAD_AGGRESSIVENESS=3",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}
