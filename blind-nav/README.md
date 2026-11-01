@@ -39,7 +39,7 @@ Navigation system ready.
 
 ```mermaid
 flowchart TD
-    A["📷 Camera Source\nUSB · Laptop · IP Stream"] --> B["run.py\nBlindNav Orchestrator"]
+    A["Camera Source\nUSB · Laptop · IP Stream"] --> B["run.py\nBlindNav Orchestrator"]
 
     B --> C["YOLOv8n\n80-class Real-time Detection"]
     B --> D["Glass Wall Detector\nCanny Edge + Specular Mask"]
@@ -49,9 +49,9 @@ flowchart TD
 
     E --> F{"Urgency Triage"}
 
-    F -->|danger| G["🛑 Stop!\nObject < 3 ft ahead"]
-    F -->|warn| H["⚠️ Caution\nGo Carefully"]
-    F -->|clear| I["✅ Path Clear"]
+    F -->|danger| G["Stop!\nObject < 3 ft ahead"]
+    F -->|warn| H["Caution\nGo Carefully"]
+    F -->|clear| I["Path Clear"]
 
     G --> J["TTS Worker Thread\npyttsx3 · Kokoro-ONNX\nnon-blocking voice output"]
     H --> J
@@ -76,20 +76,20 @@ flowchart TD
 
 | Feature | Status |
 |---------|--------|
-| Real-time YOLOv8 detection | ✅ Phase 1 |
-| Left / centre / right spatial mapping | ✅ Phase 1 |
-| Bbox-based distance estimation | ✅ Phase 1 |
-| Danger / warn / clear urgency levels | ✅ Phase 1 |
-| Priority object list (person, door, chair first) | ✅ Phase 1 |
-| Threaded TTS (non-blocking) | ✅ Phase 1 |
-| Runtime confidence adjustment (+/−) | ✅ Phase 1 |
-| Scene description on demand (D key) | ✅ Phase 1 |
-| Heuristic glass wall detection | ✅ Phase 1 |
-| MiDaS monocular depth | 🔲 Phase 2 |
-| Floor / navigable path segmentation | 🔲 Phase 2 |
-| OCR document reading (EasyOCR) | 🔲 Phase 2 (PMC integration) |
-| Moondream scene captioning | 🔲 Phase 2 (PMC integration) |
-| PMC long-term scene memory | 🔲 Phase 2 |
+| Real-time YOLOv8 detection | Phase 1 (Complete) |
+| Left / centre / right spatial mapping | Phase 1 (Complete) |
+| Bbox-based distance estimation | Phase 1 (Complete) |
+| Danger / warn / clear urgency levels | Phase 1 (Complete) |
+| Priority object list (person, door, chair first) | Phase 1 (Complete) |
+| Threaded TTS (non-blocking) | Phase 1 (Complete) |
+| Runtime confidence adjustment (+/−) | Phase 1 (Complete) |
+| Scene description on demand (D key) | Phase 1 (Complete) |
+| Heuristic glass wall detection | Phase 1 (Complete) |
+| MiDaS monocular depth | Phase 2 (Planned) |
+| Floor / navigable path segmentation | Phase 2 (Planned) |
+| OCR document reading (EasyOCR) | Phase 2 (Planned) |
+| Moondream scene captioning | Phase 2 (Planned) |
+| PMC long-term scene memory | Phase 2 (Planned) |
 
 ---
 

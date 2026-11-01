@@ -13,17 +13,17 @@ Augen brings together two complementary intelligent pillars into a single local-
 
 ```mermaid
 flowchart TD
-    User([👤 User / Wearer])
+    User([User / Wearer])
 
     subgraph Feature1["Feature 1: ContextAI (Personal Memory Core)"]
-        F1_In["🎙️ Voice & Camera Inputs"] --> F1_Core["Visual Cortex + Sonic Memory"]
+        F1_In["Voice & Camera Inputs"] --> F1_Core["Visual Cortex + Sonic Memory"]
         F1_Core --> F1_RAG["RAG Engine + ChromaDB"]
         F1_RAG --> F1_LLM["Ollama (Granite 3 Dense / Moondream)"]
         F1_LLM --> F1_Out["Conversational Speech & Knowledge Graph"]
     end
 
     subgraph Feature2["Feature 2: Augen Nav (Spectra)"]
-        F2_Cam["📷 Live Video Stream (USB/IP)"] --> F2_Det["YOLOv8 + Glass Wall Detector"]
+        F2_Cam["Live Video Stream (USB/IP)"] --> F2_Det["YOLOv8 + Glass Wall Detector"]
         F2_Det --> F2_Nav["Spatial Navigator (Left/Center/Right)"]
         F2_Nav --> F2_Triage{"Urgency Triage"}
         F2_Triage -->|Danger / Warn / Clear| F2_TTS["Real-time Non-blocking Spoken Guidance"]
