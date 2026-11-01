@@ -37,25 +37,37 @@ Navigation system ready.
 
 ## Architecture
 
-```
-Camera Feed (USB / IP Stream)
-        │
-        ▼
-  YOLOv8n (80-class real-time detection)
-  + Glass Wall Detector (Canny + specular CV heuristic)
-  [+ MiDaS Depth (Phase 2)]
-        │
-        ▼
-  Navigator — region (L/C/R), distance_ft, priority score
-        │
-        ▼
-  Instruction Generator — urgency triage (danger / warn / clear)
-        │
-        ▼
-  TTS Worker Thread (pyttsx3 / Kokoro-ONNX) — non-blocking voice output
-        │
-        ▼
-  [Optional] PMC Memory Core — scene memories stored to ChromaDB vector store
+```mermaid
+flowchart TD
+    A["📷 Camera Source\nUSB · Laptop · IP Stream"] --> B["run.py\nBlindNav Orchestrator"]
+
+    B --> C["YOLOv8n\n80-class Real-time Detection"]
+    B --> D["Glass Wall Detector\nCanny Edge + Specular Mask"]
+
+    C --> E["Navigator\nnavigation.py"]
+    D --> E
+
+    E --> F{"Urgency Triage"}
+
+    F -->|danger| G["🛑 Stop!\nObject < 3 ft ahead"]
+    F -->|warn| H["⚠️ Caution\nGo Carefully"]
+    F -->|clear| I["✅ Path Clear"]
+
+    G --> J["TTS Worker Thread\npyttsx3 · Kokoro-ONNX\nnon-blocking voice output"]
+    H --> J
+    I --> J
+
+    B -.->|"Phase 2"| K["MiDaS Depth\nCalibrated Distance (ft)"]
+    K -.-> E
+
+    B -.->|"Phase 2"| L["PMC Memory Core\nEasyOCR · Moondream VLM\nWhisper STT · ChromaDB"]
+
+    style G fill:#cc2200,color:#ffffff,stroke:#ff4444
+    style H fill:#cc6600,color:#ffffff,stroke:#ff8800
+    style I fill:#006622,color:#ffffff,stroke:#00aa44
+    style K fill:#0d1b2a,color:#00ccff,stroke:#00ccff,stroke-dasharray:5
+    style L fill:#0d1b2a,color:#00ff88,stroke:#00ff88,stroke-dasharray:5
+    style B fill:#1a1a2e,color:#e0e0ff,stroke:#7777ff
 ```
 
 ---
