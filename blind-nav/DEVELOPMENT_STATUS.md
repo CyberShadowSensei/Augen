@@ -91,3 +91,4 @@
 | TTS latency (pyttsx3) | ~50ms to queue, non-blocking |
 | Whisper base.en GPU (PMC) | ~260ms warm RTF=0.087 |
 | MiDaS DPT_Swin2_Tiny_256 (Phase 2) | ~15fps at 416×416 (estimated) |
+

@@ -187,3 +187,4 @@ This enables queries like:
 - *"Where was the exit door?"* — retrieves from ChromaDB scene memory
 - *"What does this sign say?"* — triggers EasyOCR on current frame
 - *"What is in this room?"* — triggers Moondream scene caption + TTS
+

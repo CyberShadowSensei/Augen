@@ -141,3 +141,4 @@ TTS: any language supported by pyttsx3 (Windows SAPI voices). Moondream and Whis
 
 **"Is this open source?"**  
 Yes. MIT license. All models used (YOLOv8, MiDaS, Whisper, Moondream) are open-source.
+

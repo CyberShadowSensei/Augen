@@ -73,3 +73,4 @@ First stable release of the blind-nav navigation assistant.
 ### Phase 2 Preview
 MiDaS depth, EasyOCR, Moondream VLM, Whisper voice commands, and PMC memory integration coming next.
 ```
+

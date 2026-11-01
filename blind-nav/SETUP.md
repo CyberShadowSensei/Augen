@@ -157,3 +157,4 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 
 **MiDaS download fails (Phase 2)**
 Manually download from [github.com/isl-org/MiDaS](https://github.com/isl-org/MiDaS) and place the `.pt` file in `models/`.
+

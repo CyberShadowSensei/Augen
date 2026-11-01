@@ -1,19 +1,46 @@
-# Personal Memory Core (PMC) v1.5
+# Augen
 
-### *A Local-First, Multimodal, Retrieval-Augmented "Second Brain" for Wearable AI*
+> **Augen** (German for *"Eyes"*) — A Unified Multimodal AI Platform combining Continuous Contextual Memory with Real-Time Assistive Spatial Navigation for Wearables and Edge Devices.
 
-**Keywords:** RAG, embeddings, multimodal AI, on-device inference, Human-Computer Interaction (HCI), prototyping
-
----
-
-## Project Demo
-
-Watch the Personal Memory Core in action:
-**[View Project Demo Video](https://drive.google.com/file/d/1dv2MMHM53RRM-iA-QIt6RSRYjFjLKBR6/view?usp=drive_link)**
+**Domain:** Assistive Technology, Multimodal AI, Edge Computing  
+**Platform:** Local-First, Privacy-Preserving, GPU-Accelerated
 
 ---
 
-## 1. Overview and Research Relevance
+## Architecture Overview: Two Core Features
+
+Augen brings together two complementary intelligent pillars into a single local-first architecture:
+
+```mermaid
+flowchart TD
+    User([👤 User / Wearer])
+
+    subgraph Feature1["Feature 1: ContextAI (Personal Memory Core)"]
+        F1_In["🎙️ Voice & Camera Inputs"] --> F1_Core["Visual Cortex + Sonic Memory"]
+        F1_Core --> F1_RAG["RAG Engine + ChromaDB"]
+        F1_RAG --> F1_LLM["Ollama (Granite 3 Dense / Moondream)"]
+        F1_LLM --> F1_Out["Conversational Speech & Knowledge Graph"]
+    end
+
+    subgraph Feature2["Feature 2: Augen Nav (Spectra)"]
+        F2_Cam["📷 Live Video Stream (USB/IP)"] --> F2_Det["YOLOv8 + Glass Wall Detector"]
+        F2_Det --> F2_Nav["Spatial Navigator (Left/Center/Right)"]
+        F2_Nav --> F2_Triage{"Urgency Triage"}
+        F2_Triage -->|Danger / Warn / Clear| F2_TTS["Real-time Non-blocking Spoken Guidance"]
+    end
+
+    User <-->|Voice Query & Memory Recall| Feature1
+    User <-->|Live Spoken Navigation Cues| Feature2
+```
+
+| Feature | Directory | Focus & Capabilities |
+|---|---|---|
+| **Feature 1: ContextAI (PMC)** | `./` (Root) | **Second Brain & RAG:** Hands-free voice memory capture (VAD + Whisper), visual text/scene fusion (Moondream + EasyOCR), ChromaDB vector storage, grounded conversational retrieval, and Pyvis knowledge graphs. |
+| **Feature 2: Augen Nav (Spectra)** | [`blind-nav/`](blind-nav/) | **Real-Time Spatial Navigation:** Assistive obstacle avoidance for visually impaired users. YOLOv8 object detection, Canny edge glass wall detection, left/center/right spatial awareness, urgency triage (`Stop!`, `Caution`, `Path Clear`), and low-latency TTS. |
+
+---
+
+## 1. Feature 1: Personal Memory Core (PMC / ContextAI)
 
 The Personal Memory Core (PMC) is a Python-based prototype for a privacy-preserving AI assistant designed for next-generation wearable computing, such as smart glasses. It functions as a "Second Brain," capturing multimodal sensory data (audio, visual) and structuring it into a queryable, semantic memory. This allows the user to recall details from their life with enhanced fidelity.
 

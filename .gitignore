@@ -19,6 +19,8 @@ kokoro_models/
 *.db
 *.bin
 *.onnx
+*.pt
+models/*.pt
 
 # IDE & OS
 .vscode/

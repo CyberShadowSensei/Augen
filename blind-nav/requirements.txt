@@ -1,0 +1,46 @@
+# blind-nav requirements
+# Generated from working environment — Python 3.10.11, Windows 11, RTX GPU
+#
+# ──────────────────────────────────────────────────────
+# IMPORTANT — PyTorch must be installed FIRST if using GPU.
+# The versions below include CUDA 11.8 builds (+cu118).
+#
+# GPU install (CUDA 11.8):
+#   pip install torch==2.7.1+cu118 torchvision==0.22.1+cu118 torchaudio==2.7.1+cu118 --index-url https://download.pytorch.org/whl/cu118
+#
+# GPU install (CUDA 12.1):
+#   pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+#
+# CPU only (any OS, no GPU needed):
+#   pip install torch torchvision torchaudio
+#
+# Then run:
+#   pip install -r requirements.txt
+# ──────────────────────────────────────────────────────
+
+# Detection
+ultralytics==8.3.176
+
+# Vision — must be <5.0.0 and NOT headless (headless has no imshow/window support)
+# If you have opencv-python-headless installed, run:
+#   pip uninstall opencv-python opencv-python-headless -y
+#   pip install "opencv-python>=4.8.0,<5.0.0"
+opencv-python==4.13.0.92
+
+# Numerics
+numpy==2.2.6
+
+# Text-to-Speech
+pyttsx3==2.98
+
+# PyTorch (CPU fallback — replace with GPU build above if you have CUDA)
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+
+# Depth model (Phase 2 — MiDaS)
+timm==1.0.19
+
+# Utilities
+Pillow==11.3.0
+tqdm==4.67.1
